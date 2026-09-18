@@ -90,7 +90,6 @@ nav a {
     box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 
-/* Clickable Title Badge Styling */
 .clickable-title {
     display: inline-flex;
     align-items: center;
@@ -218,64 +217,37 @@ nav a {
     font-size: 30px;
 }
 
-/* Feedback Form Styles */
-.feedback-box {
+/* External Feedback CTA Box */
+.feedback-card {
     background: white;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    max-width: 700px;
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
-.form-group {
-    margin-bottom: 18px;
+.feedback-card p {
+    color: #475569;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: #102a43;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 14px;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 90px;
-}
-
-.submit-btn {
-    padding: 12px 24px;
+.feedback-link-btn {
+    display: inline-block;
     background: #247ba0;
     color: white;
-    border: none;
+    text-decoration: none;
+    padding: 14px 28px;
     border-radius: 6px;
+    font-weight: bold;
     font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
-.submit-btn:hover {
+.feedback-link-btn:hover {
     background: #102a43;
-}
-
-#feedbackStatus {
-    display: none;
-    margin-top: 15px;
-    padding: 12px;
-    border-radius: 6px;
-    background: #d1fae5;
-    color: #065f46;
-    font-weight: bold;
 }
 
 /* Modal Popup Window */
@@ -372,7 +344,7 @@ footer {
         <a onclick="scrollToSection('phishing')">Phishing</a>
         <a onclick="scrollToSection('simulation')">Simulation</a>
         <a onclick="scrollToSection('quiz')">Quiz</a>
-        <a onclick="scrollToSection('feedback')">Feedback</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOwnVEVtz1m6V8DejDqV5TU-V7_TEs-dhfL6-PYQXkRN2h8g/viewform" target="_blank">Feedback ↗</a>
     </nav>
 </header>
 
@@ -391,170 +363,152 @@ footer {
     <h2 class="section-title">What is Phishing?</h2>
     <div class="cards">
         <div class="card">
-            <h3 class="clickable-title" onclick="openModal('email')" title="Click to view real visual sample">📧 Email Phishing[cite: 3]</h3>
-            <p>Fraudulent emails designed to trick users into clicking malicious links or sharing sensitive information.[cite: 1, 3]</p>
+            <h3 class="clickable-title" onclick="openModal('email')" title="Click to view real visual sample">📧 Email Phishing</h3>
+            <p>Fraudulent emails designed to trick users into clicking malicious links or sharing sensitive information.</p>
         </div>
 
         <div class="card">
-            <h3 class="clickable-title" onclick="openModal('smishing')" title="Click to view real visual sample">📱 Smishing[cite: 3]</h3>
-            <p>Phishing attacks delivered through SMS or messaging applications.[cite: 1, 3]</p>
+            <h3 class="clickable-title" onclick="openModal('smishing')" title="Click to view real visual sample">📱 Smishing</h3>
+            <p>Phishing attacks delivered through SMS or messaging applications.</p>
         </div>
 
         <div class="card">
-            <h3 class="clickable-title" onclick="openModal('vishing')" title="Click to view real visual sample">☎️ Vishing[cite: 3]</h3>
-            <p>Fraudulent phone calls where attackers attempt to obtain confidential information.[cite: 1, 3]</p>
+            <h3 class="clickable-title" onclick="openModal('vishing')" title="Click to view real visual sample">☎️ Vishing</h3>
+            <p>Fraudulent phone calls where attackers attempt to obtain confidential information.</p>
         </div>
 
         <div class="card">
-            <h3 class="clickable-title" onclick="openModal('fakewebsite')" title="Click to view real visual sample">🔗 Fake Websites[cite: 3]</h3>
-            <p>Websites designed to look legitimate and steal usernames, passwords or payment information.[cite: 1, 3]</p>
+            <h3 class="clickable-title" onclick="openModal('fakewebsite')" title="Click to view real visual sample">🔗 Fake Websites</h3>
+            <p>Websites designed to look legitimate and steal usernames, passwords or payment information.</p>
         </div>
     </div>
 </section>
 
 <section class="container">
-    <h2 class="section-title">🚨 Common Warning Signs[cite: 3]</h2>
+    <h2 class="section-title">🚨 Common Warning Signs</h2>
     <div class="cards">
         <div class="card warning">
-            <h3 class="clickable-title" onclick="openModal('urgent')" title="Click to view real visual sample">Urgent Requests[cite: 3]</h3>
-            <p>"Your account will be suspended immediately."[cite: 1, 3]</p>
+            <h3 class="clickable-title" onclick="openModal('urgent')" title="Click to view real visual sample">Urgent Requests</h3>
+            <p>"Your account will be suspended immediately."</p>
         </div>
 
         <div class="card warning">
-            <h3 class="clickable-title" onclick="openModal('links')" title="Click to view real visual sample">Suspicious Links[cite: 3]</h3>
-            <p>The displayed website address doesn't match the legitimate organization.[cite: 1, 3]</p>
+            <h3 class="clickable-title" onclick="openModal('links')" title="Click to view real visual sample">Suspicious Links</h3>
+            <p>The displayed website address doesn't match the legitimate organization.</p>
         </div>
 
         <div class="card warning">
-            <h3 class="clickable-title" onclick="openModal('credentials')" title="Click to view real visual sample">Credential Requests[cite: 3]</h3>
-            <p>Requests for passwords, OTPs or MFA approvals should be treated carefully.[cite: 1, 3]</p>
+            <h3 class="clickable-title" onclick="openModal('credentials')" title="Click to view real visual sample">Credential Requests</h3>
+            <p>Requests for passwords, OTPs or MFA approvals should be treated carefully.</p>
         </div>
 
         <div class="card warning">
-            <h3 class="clickable-title" onclick="openModal('attachments')" title="Click to view real visual sample">Unexpected Attachments[cite: 3]</h3>
-            <p>Be cautious with unexpected files or documents.[cite: 1, 3]</p>
+            <h3 class="clickable-title" onclick="openModal('attachments')" title="Click to view real visual sample">Unexpected Attachments</h3>
+            <p>Be cautious with unexpected files or documents.</p>
         </div>
     </div>
 </section>
 
 <section class="container" id="simulation">
-    <h2 class="section-title">🎯 Phishing Email Simulation[cite: 1]</h2>
-    <p>Can you identify what's suspicious in this email?[cite: 1]</p>
+    <h2 class="section-title">🎯 Phishing Email Simulation</h2>
+    <p>Can you identify what's suspicious in this email?</p>
 
     <div class="email-box">
         <div class="email-header">
-            <strong>From:</strong> security-alert@company-example-security.com<br>[cite: 1]
-            <strong>Subject:</strong> ⚠️ Urgent: Your account will be suspended[cite: 1]
+            <strong>From:</strong> security-alert@company-example-security.com<br>
+            <strong>Subject:</strong> ⚠️ Urgent: Your account will be suspended
         </div>
         <div class="email-body">
             Hello User,<br><br>
             Your corporate account will be suspended today. Please
-            <span class="suspicious">click here to verify your password</span> immediately.<br><br>[cite: 1]
-            Failure to complete the verification may result in account suspension.<br><br>[cite: 1]
+            <span class="suspicious">click here to verify your password</span> immediately.<br><br>
+            Failure to complete the verification may result in account suspension.<br><br>
             Regards,<br>
-            IT Security Team[cite: 1]
+            IT Security Team
         </div>
-        <button class="analyze-btn" onclick="analyzeEmail()">🔍 Analyze Email</button>[cite: 1]
+        <button class="analyze-btn" onclick="analyzeEmail()">🔍 Analyze Email</button>
         <div id="analysis">
-            <h3>🚨 Suspicious Indicators Found[cite: 1]</h3>
+            <h3>🚨 Suspicious Indicators Found</h3>
             <ul>
-                <li>Suspicious sender/domain[cite: 1]</li>
-                <li>Urgent/threatening language[cite: 1]</li>
-                <li>Request to verify password[cite: 1]</li>
-                <li>Link should be verified before clicking[cite: 1]</li>
+                <li>Suspicious sender/domain</li>
+                <li>Urgent/threatening language</li>
+                <li>Request to verify password</li>
+                <li>Link should be verified before clicking</li>
             </ul>
             <br>
-            <strong>Recommended action: Do not click the link. Verify the request through an official channel and report the suspicious email.[cite: 1]</strong>
+            <strong>Recommended action: Do not click the link. Verify the request through an official channel and report the suspicious email.</strong>
         </div>
     </div>
 </section>
 
 <section class="container">
-    <h2 class="section-title">🛡️ What Should You Do?[cite: 1]</h2>
+    <h2 class="section-title">🛡️ What Should You Do?</h2>
     <div class="steps">
         <div class="step">
             <span>🛑</span>
             <h3>STOP</h3>
-            <p>Don't click suspicious links.[cite: 1]</p>
+            <p>Don't click suspicious links.</p>
         </div>
         <div class="step">
             <span>🔍</span>
             <h3>VERIFY</h3>
-            <p>Check the sender and request.[cite: 1]</p>
+            <p>Check the sender and request.</p>
         </div>
         <div class="step">
             <span>🚨</span>
             <h3>REPORT</h3>
-            <p>Report suspicious activity.[cite: 1]</p>
+            <p>Report suspicious activity.</p>
         </div>
         <div class="step">
             <span>🗑️</span>
             <h3>DELETE</h3>
-            <p>Delete the message after reporting.[cite: 1]</p>
+            <p>Delete the message after reporting.</p>
         </div>
     </div>
 </section>
 
 <section class="container">
-    <h2 class="section-title">🔐 Password & MFA Security[cite: 1]</h2>
+    <h2 class="section-title">🔐 Password & MFA Security</h2>
     <div class="cards">
         <div class="card safe">
-            <h3>Strong Passwords[cite: 1]</h3>
-            <p>Use unique passwords for important accounts.[cite: 1]</p>
+            <h3>Strong Passwords</h3>
+            <p>Use unique passwords for important accounts.</p>
         </div>
         <div class="card safe">
             <h3>MFA</h3>
-            <p>Never approve an unexpected MFA request.[cite: 1]</p>
+            <p>Never approve an unexpected MFA request.</p>
         </div>
         <div class="card safe">
             <h3>OTP</h3>
-            <p>Never share OTPs with another person.[cite: 1]</p>
+            <p>Never share OTPs with another person.</p>
         </div>
         <div class="card safe">
             <h3>Verification</h3>
-            <p>Verify unusual requests through another trusted channel.[cite: 1]</p>
+            <p>Verify unusual requests through another trusted channel.</p>
         </div>
     </div>
 </section>
 
 <section class="container" id="quiz">
-    <h2 class="section-title">🧠 Quick Security Quiz[cite: 1]</h2>
+    <h2 class="section-title">🧠 Quick Security Quiz</h2>
     <div class="quiz">
-        <h3>You receive an email asking you to reset your corporate password using a link. What should you do?[cite: 1]</h3>
-        <button class="option" onclick="checkAnswer(false)">A. Click the link immediately</button>[cite: 1]
-        <button class="option" onclick="checkAnswer(false)">B. Reply with your password</button>[cite: 1]
-        <button class="option" onclick="checkAnswer(true)">C. Verify the request and report it if suspicious</button>[cite: 1]
-        <button class="option" onclick="checkAnswer(false)">D. Forward it to colleagues</button>[cite: 1]
+        <h3>You receive an email asking you to reset your corporate password using a link. What should you do?</h3>
+        <button class="option" onclick="checkAnswer(false)">A. Click the link immediately</button>
+        <button class="option" onclick="checkAnswer(false)">B. Reply with your password</button>
+        <button class="option" onclick="checkAnswer(true)">C. Verify the request and report it if suspicious</button>
+        <button class="option" onclick="checkAnswer(false)">D. Forward it to colleagues</button>
         <div id="quizResult"></div>
     </div>
 </section>
 
-<section class="container" id="feedback">
+<!-- Feedback CTA Section -->
+<section class="container">
     <h2 class="section-title">📝 Program Feedback</h2>
-    <div class="feedback-box">
-        <form id="feedbackForm" onsubmit="submitFeedback(event)">
-            <div class="form-group">
-                <label for="userName">Name (Optional)</label>
-                <input type="text" id="userName" placeholder="Your name">
-            </div>
-            <div class="form-group">
-                <label for="rating">Training Rating</label>
-                <select id="rating" required>
-                    <option value="">Select rating...</option>
-                    <option value="5">⭐⭐⭐⭐⭐ - Excellent & Informative</option>
-                    <option value="4">⭐⭐⭐⭐ - Helpful</option>
-                    <option value="3">⭐⭐⭐ - Neutral</option>
-                    <option value="2">⭐⭐ - Needs More Detail</option>
-                    <option value="1">⭐ - Poor</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="comments">Comments & Suggestions</label>
-                <textarea id="comments" placeholder="What did you learn? How can we improve this training?" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit Feedback</button>
-        </form>
-        <div id="feedbackStatus">✅ Thank you! Your feedback has been received.</div>
+    <div class="feedback-card">
+        <p>Your feedback helps us continuously improve our cybersecurity awareness modules.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOwnVEVtz1m6V8DejDqV5TU-V7_TEs-dhfL6-PYQXkRN2h8g/viewform" target="_blank" class="feedback-link-btn">
+            Open Feedback Form ↗
+        </a>
     </div>
 </section>
 
@@ -569,7 +523,7 @@ footer {
 </div>
 
 <footer>
-    <p>🔐 Security Awareness | Protect. Verify. Report.[cite: 1]</p>
+    <p>🔐 Security Awareness | Protect. Verify. Report.</p>
 </footer>
 
 <script>
@@ -653,16 +607,6 @@ function checkAnswer(correct) {
     } else {
         result.innerHTML = "❌ Not recommended. Verify the request and report suspicious activity.";
     }
-}
-
-function submitFeedback(e) {
-    e.preventDefault();
-    document.getElementById("feedbackForm").reset();
-    const status = document.getElementById("feedbackStatus");
-    status.style.display = "block";
-    setTimeout(() => {
-        status.style.display = "none";
-    }, 4000);
 }
 </script>
 
