@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cyber Fraud Defense & Phishing Awareness</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.hero {
+    background: linear-gradient(135deg, #102a43, #247ba0);
+    color: white;
+    padding: 70px 8%;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+.btn {
+    margin-top: 25px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    background: white;
+    color: #102a43;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container {
+    width: 84%;
+    margin: 40px auto;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    color: #102a43;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+/* Clickable Title Badge Styling */
+.clickable-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    color: #102a43;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 4px 6px;
+    margin-left: -6px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.clickable-title:hover {
+    background-color: #e0f2fe;
+    color: #0284c7;
+    transform: translateX(3px);
+}
+
+.clickable-title::after {
+    content: "🔍";
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+.warning {
+    border-left: 5px solid #e63946;
+}
+
+.safe {
+    border-left: 5px solid #2a9d8f;
+}
+
+.email-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    margin-top: 20px;
+}
+
+.email-header {
+    background: #f1f5f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+}
+
+.email-body {
+    line-height: 1.7;
+}
+
+.suspicious {
+    background: #ffe5e5;
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: #b91c1c;
+    font-weight: bold;
+}
+
+.analyze-btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #e63946;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#analysis {
+    display: none;
+    margin-top: 20px;
+    background: #fff3cd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.quiz {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #d1d5db;
+    background: #f8fafc;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #e2e8f0;
+}
+
+#quizResult {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.step {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.step span {
+    font-size: 30px;
+}
+
+/* Feedback Form Styles */
+.feedback-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    max-width: 700px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #102a43;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.submit-btn {
+    padding: 12px 24px;
+    background: #247ba0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #102a43;
+}
+
+#feedbackStatus {
+    display: none;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: bold;
+}
+
+/* Modal Popup Window */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(16, 42, 67, 0.75);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    max-width: 580px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    animation: popupFade 0.2s ease-out;
+}
+
+@keyframes popupFade {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.close-modal {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 26px;
+    color: #64748b;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #0f172a;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 14px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.modal-content h3 {
+    color: #102a43;
+    font-size: 20px;
+}
+
+.modal-content p {
+    line-height: 1.6;
+    color: #475569;
+}
+
+footer {
+    margin-top: 50px;
+    background: #102a43;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+@media(max-width:600px) {
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    nav {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔐 Cyber Defense Portal</h1>
+    <nav>
+        <a onclick="scrollToSection('home')">Home</a>
+        <a onclick="scrollToSection('phishing')">Phishing</a>
+        <a onclick="scrollToSection('simulation')">Simulation</a>
+        <a onclick="scrollToSection('quiz')">Quiz</a>
+        <a onclick="scrollToSection('feedback')">Feedback</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h2>Cyber Fraud Defense & Phishing Awareness</h2>
+    <p>
+        Learn how to identify social engineering attacks, protect critical credentials, 
+        and respond safely to suspicious messages.
+    </p>
+    <button class="btn" onclick="scrollToSection('phishing')">
+        Start Awareness Training
+    </button>
+</section>
+
+<section class="container" id="phishing">
+    <h2 class="section-title">What is Phishing?</h2>
+    <div class="cards">
+        <div class="card">
+            <h3 class="clickable-title" onclick="openModal('email')" title="Click to view real visual sample">📧 Email Phishing[cite: 3]</h3>
+            <p>Fraudulent emails designed to trick users into clicking malicious links or sharing sensitive information.[cite: 1, 3]</p>
+        </div>
+
+        <div class="card">
+            <h3 class="clickable-title" onclick="openModal('smishing')" title="Click to view real visual sample">📱 Smishing[cite: 3]</h3>
+            <p>Phishing attacks delivered through SMS or messaging applications.[cite: 1, 3]</p>
+        </div>
+
+        <div class="card">
+            <h3 class="clickable-title" onclick="openModal('vishing')" title="Click to view real visual sample">☎️ Vishing[cite: 3]</h3>
+            <p>Fraudulent phone calls where attackers attempt to obtain confidential information.[cite: 1, 3]</p>
+        </div>
+
+        <div class="card">
+            <h3 class="clickable-title" onclick="openModal('fakewebsite')" title="Click to view real visual sample">🔗 Fake Websites[cite: 3]</h3>
+            <p>Websites designed to look legitimate and steal usernames, passwords or payment information.[cite: 1, 3]</p>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="section-title">🚨 Common Warning Signs[cite: 3]</h2>
+    <div class="cards">
+        <div class="card warning">
+            <h3 class="clickable-title" onclick="openModal('urgent')" title="Click to view real visual sample">Urgent Requests[cite: 3]</h3>
+            <p>"Your account will be suspended immediately."[cite: 1, 3]</p>
+        </div>
+
+        <div class="card warning">
+            <h3 class="clickable-title" onclick="openModal('links')" title="Click to view real visual sample">Suspicious Links[cite: 3]</h3>
+            <p>The displayed website address doesn't match the legitimate organization.[cite: 1, 3]</p>
+        </div>
+
+        <div class="card warning">
+            <h3 class="clickable-title" onclick="openModal('credentials')" title="Click to view real visual sample">Credential Requests[cite: 3]</h3>
+            <p>Requests for passwords, OTPs or MFA approvals should be treated carefully.[cite: 1, 3]</p>
+        </div>
+
+        <div class="card warning">
+            <h3 class="clickable-title" onclick="openModal('attachments')" title="Click to view real visual sample">Unexpected Attachments[cite: 3]</h3>
+            <p>Be cautious with unexpected files or documents.[cite: 1, 3]</p>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="simulation">
+    <h2 class="section-title">🎯 Phishing Email Simulation[cite: 1]</h2>
+    <p>Can you identify what's suspicious in this email?[cite: 1]</p>
+
+    <div class="email-box">
+        <div class="email-header">
+            <strong>From:</strong> security-alert@company-example-security.com<br>[cite: 1]
+            <strong>Subject:</strong> ⚠️ Urgent: Your account will be suspended[cite: 1]
+        </div>
+        <div class="email-body">
+            Hello User,<br><br>
+            Your corporate account will be suspended today. Please
+            <span class="suspicious">click here to verify your password</span> immediately.<br><br>[cite: 1]
+            Failure to complete the verification may result in account suspension.<br><br>[cite: 1]
+            Regards,<br>
+            IT Security Team[cite: 1]
+        </div>
+        <button class="analyze-btn" onclick="analyzeEmail()">🔍 Analyze Email</button>[cite: 1]
+        <div id="analysis">
+            <h3>🚨 Suspicious Indicators Found[cite: 1]</h3>
+            <ul>
+                <li>Suspicious sender/domain[cite: 1]</li>
+                <li>Urgent/threatening language[cite: 1]</li>
+                <li>Request to verify password[cite: 1]</li>
+                <li>Link should be verified before clicking[cite: 1]</li>
+            </ul>
+            <br>
+            <strong>Recommended action: Do not click the link. Verify the request through an official channel and report the suspicious email.[cite: 1]</strong>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="section-title">🛡️ What Should You Do?[cite: 1]</h2>
+    <div class="steps">
+        <div class="step">
+            <span>🛑</span>
+            <h3>STOP</h3>
+            <p>Don't click suspicious links.[cite: 1]</p>
+        </div>
+        <div class="step">
+            <span>🔍</span>
+            <h3>VERIFY</h3>
+            <p>Check the sender and request.[cite: 1]</p>
+        </div>
+        <div class="step">
+            <span>🚨</span>
+            <h3>REPORT</h3>
+            <p>Report suspicious activity.[cite: 1]</p>
+        </div>
+        <div class="step">
+            <span>🗑️</span>
+            <h3>DELETE</h3>
+            <p>Delete the message after reporting.[cite: 1]</p>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="section-title">🔐 Password & MFA Security[cite: 1]</h2>
+    <div class="cards">
+        <div class="card safe">
+            <h3>Strong Passwords[cite: 1]</h3>
+            <p>Use unique passwords for important accounts.[cite: 1]</p>
+        </div>
+        <div class="card safe">
+            <h3>MFA</h3>
+            <p>Never approve an unexpected MFA request.[cite: 1]</p>
+        </div>
+        <div class="card safe">
+            <h3>OTP</h3>
+            <p>Never share OTPs with another person.[cite: 1]</p>
+        </div>
+        <div class="card safe">
+            <h3>Verification</h3>
+            <p>Verify unusual requests through another trusted channel.[cite: 1]</p>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="quiz">
+    <h2 class="section-title">🧠 Quick Security Quiz[cite: 1]</h2>
+    <div class="quiz">
+        <h3>You receive an email asking you to reset your corporate password using a link. What should you do?[cite: 1]</h3>
+        <button class="option" onclick="checkAnswer(false)">A. Click the link immediately</button>[cite: 1]
+        <button class="option" onclick="checkAnswer(false)">B. Reply with your password</button>[cite: 1]
+        <button class="option" onclick="checkAnswer(true)">C. Verify the request and report it if suspicious</button>[cite: 1]
+        <button class="option" onclick="checkAnswer(false)">D. Forward it to colleagues</button>[cite: 1]
+        <div id="quizResult"></div>
+    </div>
+</section>
+
+<section class="container" id="feedback">
+    <h2 class="section-title">📝 Program Feedback</h2>
+    <div class="feedback-box">
+        <form id="feedbackForm" onsubmit="submitFeedback(event)">
+            <div class="form-group">
+                <label for="userName">Name (Optional)</label>
+                <input type="text" id="userName" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label for="rating">Training Rating</label>
+                <select id="rating" required>
+                    <option value="">Select rating...</option>
+                    <option value="5">⭐⭐⭐⭐⭐ - Excellent & Informative</option>
+                    <option value="4">⭐⭐⭐⭐ - Helpful</option>
+                    <option value="3">⭐⭐⭐ - Neutral</option>
+                    <option value="2">⭐⭐ - Needs More Detail</option>
+                    <option value="1">⭐ - Poor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments & Suggestions</label>
+                <textarea id="comments" placeholder="What did you learn? How can we improve this training?" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+        <div id="feedbackStatus">✅ Thank you! Your feedback has been received.</div>
+    </div>
+</section>
+
+<!-- Photo Preview Modal -->
+<div class="modal-overlay" id="imageModal" onclick="handleOverlayClick(event)">
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()">&times;</button>
+        <h3 id="modalTitle">Threat Breakdown</h3>
+        <img id="modalImage" src="" alt="Threat Photo Preview">
+        <p id="modalDesc"></p>
+    </div>
+</div>
+
+<footer>
+    <p>🔐 Security Awareness | Protect. Verify. Report.[cite: 1]</p>
+</footer>
+
+<script>
+const cardData = {
+    email: {
+        title: "📧 Email Phishing Sample",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80",
+        desc: "Visual Indicators: Deceptive sender header (e.g. '@company-support-alert.com'), generic greetings, and calls to immediate action via spoofed verification portals."
+    },
+    smishing: {
+        title: "📱 Smishing (SMS Fraud) Sample",
+        image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=900&q=80",
+        desc: "Visual Indicators: Text messages claiming failed deliveries, locked bank cards, or unpaid tolls with obfuscated short-links (bit.ly/xyz or tinyurl)."
+    },
+    vishing: {
+        title: "☎️ Vishing (Voice Phishing) Sample",
+        image: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=900&q=80",
+        desc: "Visual Indicators: Incoming spoofed caller IDs mimicking internal IT or HR departments trying to pressure targets into reading 2FA pins aloud."
+    },
+    fakewebsite: {
+        title: "🔗 Fake / Spoofed Website Sample",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80",
+        desc: "Visual Indicators: High-fidelity clones of login screens. Check the address bar carefully for typosquatting (e.g., 'micros0ft.com' or extra subdomains)."
+    },
+    urgent: {
+        title: "⚠️ High Urgency Tactic Sample",
+        image: "https://images.unsplash.com/photo-1618042164219-62c820f10723?auto=format&fit=crop&w=900&q=80",
+        desc: "Visual Indicators: Countdown timers or threatening subject lines ('Account suspension within 15 minutes') designed to bypass critical thinking."
+    },
+    links: {
+        title: "🔗 Deceptive Link Inspection",
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80",
+        desc: "Visual Indicators: Hovering your mouse over hyperlinked text reveals the true destination URL differs completely from the displayed brand name."
+    },
+    credentials: {
+        title: "🔑 Direct Credential Solicitation",
+        image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=900&q=80",
+        desc: "Visual Indicators: Pop-ups asking for passwords, master seed phrases, or active OTP codes. Legitimate enterprise systems never ask for cleartext secrets."
+    },
+    attachments: {
+        title: "📎 Suspicious Attachments Sample",
+        image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=900&q=80",
+        desc: "Visual Indicators: Double extensions (e.g., 'Invoice_March.pdf.exe'), zip archives, or macro-enabled documents (.xlsm, .docm) sent out of the blue."
+    }
+};
+
+function openModal(key) {
+    const data = cardData[key];
+    if (!data) return;
+
+    document.getElementById("modalTitle").innerText = data.title;
+    document.getElementById("modalImage").src = data.image;
+    document.getElementById("modalDesc").innerText = data.desc;
+    document.getElementById("imageModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+
+function handleOverlayClick(event) {
+    if (event.target.id === "imageModal") {
+        closeModal();
+    }
+}
+
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function analyzeEmail() {
+    document.getElementById("analysis").style.display = "block";
+}
+
+function checkAnswer(correct) {
+    const result = document.getElementById("quizResult");
+    if (correct) {
+        result.innerHTML = "✅ Correct! Always verify suspicious requests before taking action.";
+    } else {
+        result.innerHTML = "❌ Not recommended. Verify the request and report suspicious activity.";
+    }
+}
+
+function submitFeedback(e) {
+    e.preventDefault();
+    document.getElementById("feedbackForm").reset();
+    const status = document.getElementById("feedbackStatus");
+    status.style.display = "block";
+    setTimeout(() => {
+        status.style.display = "none";
+    }, 4000);
+}
+</script>
+
+</body>
+</html>
