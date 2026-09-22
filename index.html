@@ -217,39 +217,6 @@ nav a {
     font-size: 30px;
 }
 
-/* External Feedback CTA Box */
-.feedback-card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-.feedback-card p {
-    color: #475569;
-    margin-bottom: 20px;
-    font-size: 16px;
-}
-
-.feedback-link-btn {
-    display: inline-block;
-    background: #247ba0;
-    color: white;
-    text-decoration: none;
-    padding: 14px 28px;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 15px;
-    transition: background 0.2s ease;
-}
-
-.feedback-link-btn:hover {
-    background: #102a43;
-}
-
 /* Modal Popup Window */
 .modal-overlay {
     display: none;
@@ -344,7 +311,6 @@ footer {
         <a onclick="scrollToSection('phishing')">Phishing</a>
         <a onclick="scrollToSection('simulation')">Simulation</a>
         <a onclick="scrollToSection('quiz')">Quiz</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOwnVEVtz1m6V8DejDqV5TU-V7_TEs-dhfL6-PYQXkRN2h8g/viewform" target="_blank">Feedback ↗</a>
     </nav>
 </header>
 
@@ -501,17 +467,6 @@ footer {
     </div>
 </section>
 
-<!-- Feedback CTA Section -->
-<section class="container">
-    <h2 class="section-title">📝 Program Feedback</h2>
-    <div class="feedback-card">
-        <p>Your feedback helps us continuously improve our cybersecurity awareness modules.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOwnVEVtz1m6V8DejDqV5TU-V7_TEs-dhfL6-PYQXkRN2h8g/viewform" target="_blank" class="feedback-link-btn">
-            Open Feedback Form ↗
-        </a>
-    </div>
-</section>
-
 <!-- Photo Preview Modal -->
 <div class="modal-overlay" id="imageModal" onclick="handleOverlayClick(event)">
     <div class="modal-content">
@@ -523,7 +478,7 @@ footer {
 </div>
 
 <footer>
-    <p>🔐 Security Awareness | Protect. Verify. Report.</p>
+    <p>🔐 Security Awareness | Protect. Verify. Report.[cite: 1]</p>
 </footer>
 
 <script>
