@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Fraud & Phishing Awareness - Feedback Form</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    padding: 24px 8%;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+header p {
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+.container {
+    width: 90%;
+    max-width: 760px;
+    margin: 35px auto;
+}
+
+.form-card {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.section-note {
+    background: #e0f2fe;
+    border-left: 4px solid #0284c7;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #0369a1;
+}
+
+.form-group {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.form-group:last-of-type {
+    border-bottom: none;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #102a43;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.form-group span.required {
+    color: #e63946;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #f8fafc;
+    transition: border-color 0.2s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #247ba0;
+    outline: none;
+    background: white;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #334155;
+    cursor: pointer;
+    background: #f8fafc;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.radio-item:hover {
+    background: #f1f5f9;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #247ba0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #102a43;
+}
+
+#successMessage {
+    display: none;
+    background: #dcfce7;
+    border-left: 4px solid #16a34a;
+    color: #166534;
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📝 Session Feedback Form</h1>
+    <p>Cyber Fraud Defense & Phishing Awareness Training</p>
+</header>
+
+<div class="container">
+    <div class="form-card">
+        <div class="section-note">
+            Thank you for attending today's knowledge transfer. Please answer these 10 short questions to help evaluate the session and improve future training.
+        </div>
+
+        <div id="successMessage">
+            ✅ Thank you! Your feedback has been submitted successfully.
+        </div>
+
+        <!-- If using a backend service like Formspree, add action="https://formspree.io/f/YOUR_FORM_ID" and method="POST" -->
+        <form id="feedbackForm" onsubmit="handleSubmit(event)">
+            
+            <!-- Participant Info -->
+            <div class="form-group">
+                <label for="studentName">Participant Name / Student ID (Optional)</label>
+                <input type="text" id="studentName" name="participant_name" placeholder="Enter your name or student ID">
+            </div>
+
+            <!-- Question 1 -->
+            <div class="form-group">
+                <label for="q1">1. How clearly were the differences between Email Phishing, Smishing, Vishing, and Fake Websites explained? <span class="required">*</span></label>
+                <select id="q1" name="q1_attack_vectors" required>
+                    <option value="">Select rating...</option>
+                    <option value="5">⭐⭐⭐⭐⭐ - Very clear & easy to differentiate</option>
+                    <option value="4">⭐⭐⭐⭐ - Clear</option>
+                    <option value="3">⭐⭐⭐ - Moderately clear</option>
+                    <option value="2">⭐⭐ - Somewhat confusing</option>
+                    <option value="1">⭐ - Not clear</option>
+                </select>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="form-group">
+                <label>2. How confident are you in identifying the 4 common red flags (Urgent Requests, Suspicious Links, Credential Requests, Unexpected Attachments)? <span class="required">*</span></label>
+                <div class="options-list">
+                    <label class="radio-item">
+                        <input type="radio" name="q2_red_flags" value="Highly Confident" required> Highly Confident (Can easily identify them)
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="q2_red_flags" value="Moderately Confident"> Moderately Confident (May need periodic reference)
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="q2_red_flags" value="Need More Practice"> Need More Practice
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="form-group">
+                <label for="q3">3. How helpful was the interactive email simulation with the "Analyze Email" breakdown in showing real indicator checks? <span class="required">*</span></label>
+                <select id="q3" name="q3_simulation_usefulness" required>
+                    <option value="">Select rating...</option>
+                    <option value="5">⭐⭐⭐⭐⭐ - Extremely helpful</option>
+                    <option value="4">⭐⭐⭐⭐ - Helpful</option>
+                    <option value="3">⭐⭐⭐ - Neutral</option>
+                    <option value="2">⭐⭐ - Slightly helpful</option>
+                    <option value="1">⭐ - Not helpful</option>
+                </select>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="form-group">
+                <label for="q4">4. Did the visual sample popups clarify how real attack lures look in practice? <span class="required">*</span></label>
+                <select id="q4" name="q4_visual_examples" required>
+                    <option value="">Select rating...</option>
+                    <option value="5">⭐⭐⭐⭐⭐ - Very clear visual representation</option>
+                    <option value="4">⭐⭐⭐⭐ - Clear</option>
+                    <option value="3">⭐⭐⭐ - Average</option>
+                    <option value="2">⭐⭐ - Needs better examples</option>
+                    <option value="1">⭐ - Ineffective</option>
+                </select>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="form-group">
+                <label>5. Do you understand the 4-step action plan (STOP, VERIFY, REPORT, DELETE) when encountering a suspicious message? <span class="required">*</span></label>
+                <div class="options-list">
+                    <label class="radio-item">
+                        <input type="radio" name="q5_response_steps" value="Yes, Completely" required> Yes, I know exactly what to do step-by-step
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="q5_response_steps" value="Somewhat"> Somewhat clear, but reporting process needs review
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="q5_response_steps" value="Not Clear"> Not clear
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="form-group">
+                <label for="q6">6. How well did the session explain best practices for protecting OTPs and handling unexpected MFA prompt requests? <span class="required">*</span></label>
+                <select id="q6" name="q6_mfa_hygiene" required>
+                    <option value="">Select rating...</option>
+                    <option value="5">⭐⭐⭐⭐⭐ - Very well explained</option>
+                    <option value="4">⭐⭐⭐⭐ - Well explained</option>
+                    <option value="3">⭐⭐⭐ - Satisfactory</option>
+                    <option value="2">⭐⭐ - Needs more detail</option>
+                    <option value="1">⭐ - Poor</option>
+                </select>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="form-group">
+                <label for="q7">7. Did the interactive quiz question effectively test your decision-making for password reset requests? <span class="required">*</span></label>
+                <select id="q7" name="q7_quiz_effectiveness" required>
+                    <option value="">Select rating...</option>
+                    <option value="5">⭐⭐⭐⭐⭐ - Highly relevant and practical</option>
+                    <option value="4">⭐⭐⭐⭐ - Good scenario</option>
+                    <option value="3">⭐⭐⭐ - Moderate</option>
+                    <option value="2">⭐⭐ - Too easy / predictable</option>
+                    <option value="1">⭐ - Ineffective</option>
+                </select>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="form-group">
+                <label>8. Which component of the portal contributed most to your understanding? <span class="required">*</span></label>
+                <div class="options-list">
+                    <label class="radio-item">
+                        <input type="radio" name="q8_best_module" value="Attack Vectors Cards" required> Attack Vector Cards (Email, Smishing, Vishing, Fake Sites)
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="q8_best_module" value="Common Warning Signs"> Common Warning Signs Cards
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="q8_best_module" value="Email Simulation"> Phishing Email Simulation & Indicator Analysis
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="q8_best_module" value="Action Plan & MFA"> STOP/VERIFY Action Steps & Password/MFA Security
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="form-group">
+                <label for="q9">9. What is the first security practice or verification habit you plan to implement in your daily work? <span class="required">*</span></label>
+                <textarea id="q9" name="q9_immediate_action" placeholder="e.g., checking sender domain before clicking, denying unexpected MFA pushes..." required></textarea>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="form-group">
+                <label for="q10">10. What additional topics or threat scenarios would you like covered in future sessions?</label>
+                <textarea id="q10" name="q10_suggestions" placeholder="e.g., QR code phishing (quishing), social media attacks, deepfakes, or more live simulations..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit 10-Question Feedback</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    🔐 Security Awareness | Protect. Verify. Report.[cite: 1]
+</footer>
+
+<script>
+function handleSubmit(event) {
+    event.preventDefault();
+    document.getElementById("feedbackForm").style.display = "none";
+    document.getElementById("successMessage").style.display = "block";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
